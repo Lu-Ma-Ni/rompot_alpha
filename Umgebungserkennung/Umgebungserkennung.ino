@@ -30,16 +30,21 @@ int startwinkel;
 
 
 void setup() {
+  Serial.begin(9600);
+  
 
 }
 
 void loop() {
-  struct objekt objekt = umgebungserkennung();
-  Serial.println(objekt.xent);
+//  struct objekt objekt = umgebungserkennung();
+//  Serial.println(objekt.xent);
   delay(500);
+  struct eingang eingang = umgebungserkennung();
+  Serial.println(eingang.winkel);
+  eingang = eingang.nextEingang;
 }
 
-struct objekt umgebungserkennung()  {
+struct eingang umgebungserkennung()  {
   //structinitialisierung;
   struct eingang 0e,5e,10e,15e,20e,25e,30e,35e,40e,45e,50e,55e,60e,65e,70e,75e,80e,85e,90e,95e,100e,105e,110e,115e,120e,125e,130e,135e,140e,145e,150e,155e,160e,165e,170e,175e,180e;
   
@@ -85,9 +90,11 @@ struct objekt umgebungserkennung()  {
   struct eingang *current;
   current = &0e
   for(int i = 0; i<=180; i=i+5) {
-    *current.abstand = sensorread();    //Funktion wird benötigt, damit automatische nächste Varible gewählt oder neu erstellt wird - Keine Ahnung wie!
-    
+   // *current.abstand = sensorread();    //Funktion wird benötigt, damit automatische nächste Varible gewählt oder neu erstellt wird - Keine Ahnung wie!
+      *current.winkel = i;
   }
+  
+  return 0e;
   
   }
 
