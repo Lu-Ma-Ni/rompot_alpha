@@ -45,7 +45,7 @@ struct objekt umgebungserkennung()  {
   struct eingang *current;
   current = &0e
   for(int i = 0; i<=180; i=i+5) {
-    *current.abstand = sensorread();
+    *current.abstand = sensorread();    //Funktion wird benötigt, damit automatische nächste Varible gewählt oder neu erstellt wird - Keine Ahnung wie!
     
   }
   
